@@ -227,7 +227,8 @@ var ExpressRadido = function() {
         app.registerController = function(key, controller)
         {
             bootLog('Registering controller : %s', key);
-            app.controllers[key] = require('../controllers/' + key);
+            var Ctrl = require('../controllers/' + key);
+            app.controllers[key] = new Ctrl(app);
             return app;
         };
 
