@@ -131,7 +131,7 @@ var ExpressRadido = function() {
         } else {
             app.set('views', path.join(path.dirname(__dirname), 'views/jade'));
         }
-        
+
         //declare dir public as static content.
         this.use(express.static(path.join(path.dirname(__dirname), 'public')));
 
@@ -214,7 +214,7 @@ var ExpressRadido = function() {
 
             var host = process.env.npm_package_config_host || null;
             app.set('host', host);
-            
+
             app.set('view engine', 'jade');
         };
 
@@ -224,11 +224,13 @@ var ExpressRadido = function() {
          * @param {Express Router} controller
          * @returns {AppBoot.app}
          */
-        app.registerController = function(key, controller)
+        app.registerController = function(key)
         {
             bootLog('Registering controller : %s', key);
             var Ctrl = require('../controllers/' + key);
             app.controllers[key] = new Ctrl(app);
+
+
             return app;
         };
 

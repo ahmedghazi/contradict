@@ -20,11 +20,10 @@ app.registerController('error404');
 app.registerController('error');
 
 //register some route
-app.registerRouteConfig('*', app.getController('request'));
-app.registerRouteConfig('/security', app.getController('security')(app).router);
-app.registerRouteConfig('/', app.getController('home')(app).router);
-app.registerRouteConfig('', app.getController('error404')(app).router);
+app.registerRouteConfig('', app.getController('request'));
+app.registerRouteConfig('/security', app.getController('security').router);
+app.registerRouteConfig('/', app.getController('home').router);
+app.registerRouteConfig('', app.getController('error404').router);
 app.registerRouteConfig('', app.getController('error'));
-
 
 module.exports = app;
