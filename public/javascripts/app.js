@@ -1,26 +1,53 @@
-'use strict';
+var ww,wh,fu,vu,au,prev_st;
 
-var app = angular.module('app', [
-    'ngRoute',
-    'app.filters',
-    'app.services',
-    'app.directives',
-    'app.controllers'
-]);
+jQuery(document).ready(function ($) {
+	format();
+	init();
+});
 
-app.config(['$routeProvider',
-    function($routeProvider) {
-    }
-]);
+$(window).resize(function(){ 
+	format();
+});
 
-var appControllers = angular.module('app.controllers', []);
+$(window).load(function(){ 
+	$("#wrapper").removeClass("hidden");
+});
 
-appControllers.controller('appCtrl', [
-    '$scope',
-    function($scope) {
-        //do something with scope
-    }
-]);
-var appDirectives = angular.module('app.directives', []);
-var appFilters = angular.module('app.filters', []);
-var appServices = angular.module('app.services', []);
+
+
+function init(){
+	init_objects();
+}
+
+function init_objects(){
+	fu = new FormUtils();
+	fu.init();
+
+	vu = new ViewUtils();
+	vu.init();
+
+	au = new AjaxUtils();
+	au.init();
+}
+
+function format(){
+	ww = $(window).width();
+	wh = $(window).height();
+
+	var padding = 40;
+	var inner_w = $(window).width() - 40;
+	$("header,footer").css({width:inner_w});
+
+	var w1 = (ww - padding);
+	$(".liste article").css({width:w1});
+	$(".liste .article_inner").css({width:w1-67});
+
+
+	var w12 = (ww - padding) / 2 - 67;
+	$(".post .article_inner").css({width:w12});
+
+	$(".replies").css({width:w12+57});
+
+	var rinner = w12-11;
+	$(".reply_inner").css({width:rinner});
+}

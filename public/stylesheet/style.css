@@ -1,0 +1,255 @@
+/*
+============================================================================================================
+============================================================================================================
+============================================================================================================
+*/
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}						
+a{text-decoration: none}
+ul{margin: 0;padding: 0}
+ul li{list-style: none}
+input {border: 0;}
+p{margin-bottom: 18px;line-height: 18px;word-break:break-word;}
+hr{margin:10px 0; border: 1px solid whitesmoke;}
+hr.hr_white{border: 1px solid #fff;}
+.clear{clear: both}
+.float_left{float: left;}
+.float_right{float: right;}
+
+.align_center{text-align:center}
+.align_left{text-align:left}
+.align_right{text-align:right}
+
+.hide {display: none;}
+.show {display: block;}
+*, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+textarea:focus, 
+input:focus
+button:focus{outline: 0;}
+.btn{cursor: pointer;}
+
+::-webkit-input-placeholder { color:blue; }
+::-moz-placeholder { color:blue; } /* firefox 19+ */
+:-ms-input-placeholder { color:blue; } /* ie */
+input:-moz-placeholder { color:blue; }
+
+.replies ::-webkit-input-placeholder { color:red; }
+.replies ::-moz-placeholder { color:red; } /* firefox 19+ */
+.replies :-ms-input-placeholder { color:red; } /* ie */
+.replies input:-moz-placeholder { color:red; }
+.replies textarea{color:red;}
+.replies input[type=submit]{background-color: red}
+a{color:blue;text-decoration: none}
+a:hover{color:#000000; text-decoration: none}
+.anime{
+	-webkit-transition: all .2s ease-out;
+       -moz-transition: all .2s ease-out;
+        -ms-transition: all .2s ease-out;
+         -o-transition: all .2s ease-out;
+            transition: all .2s ease-out;
+}
+.anime_md{
+	-webkit-transition: all .4s ease-out;
+       -moz-transition: all .4s ease-out;
+        -ms-transition: all .4s ease-out;
+         -o-transition: all .4s ease-out;
+            transition: all .4s ease-out;
+}
+.anime_lg{
+	-webkit-transition: all .8s ease-out;
+       -moz-transition: all .8s ease-out;
+        -ms-transition: all .8s ease-out;
+         -o-transition: all .8s ease-out;
+            transition: all .8s ease-out;
+}
+h1,h2,h3,h4{
+	text-transform: uppercase;
+	font-weight: 100!important;
+	-webkit-font-smoothing: antialiased;
+}
+
+header li,
+footer li{float: left;}
+
+
+.createbox{
+	width: 50%;
+}
+form input,
+form textarea{
+	width: 100%;
+	padding:10px;
+	margin-bottom: 10px;
+	border:0;
+	background-color: whitesmoke;
+	color: blue;
+}
+form input[type=submit]{
+	background-color: blue;
+	color:white;
+	float: right;
+	max-width: 30%;
+	text-transform: uppercase;
+}
+/*
+============================================================================================================
+============================================================================================================
+============================================================================================================
+*/
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+
+body{
+	font-family:'Droid Sans Mono',Andale Mono,Consolas,Monaco,monospace,"Helvetica";
+	color:blue;
+	font-size:14px;
+	margin:0;
+	padding:0;
+	line-height: 1;
+	background-color:whitesmoke;
+}
+
+#wrapper{padding:20px;}
+
+header{
+	position: fixed;
+	top:0px;
+	padding: 20px 0;
+	background-color: whitesmoke;
+}
+
+section{margin-top: 68px;}
+
+footer{
+	position: fixed;
+	bottom:0px;
+	padding: 20px 0;
+	background-color: whitesmoke;
+}
+
+.offside_top{
+	-webkit-transform: translate3d(0,-88px,0);   /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: translate3d(0,-88px,0);   /* IE 9 */
+            transform: translate3d(0,-88px,0);   /* Firefox 16+, IE 10+, Opera */
+}
+.offside_bottom{
+	-webkit-transform: translate3d(0,54px,0);   /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: translate3d(0,54px,0);   /* IE 9 */
+            transform: translate3d(0,54px,0);   /* Firefox 16+, IE 10+, Opera */
+}
+/*
+============================================================================================================
+== HEADER ==================================================================================================
+============================================================================================================
+*/
+h1,
+header nav{margin-bottom: 20px}
+li:after{
+	content:"/";
+	display: inline-block;
+	margin: 0 5px;
+}
+header nav li:last-child:after{content:"";margin: 0}
+/*
+============================================================================================================
+== FOOTER ==================================================================================================
+============================================================================================================
+*/
+footer li{
+	float: right;
+	margin: 0 0 0 0px;
+}
+footer li:first-child:after{content:"";margin: 0}
+/*
+============================================================================================================
+============================================================================================================
+============================================================================================================
+*/
+.affix{
+	position: fixed;
+	top:88px;
+}
+article.story{
+	width: 50%;
+	padding: 0px;
+	margin: 0 10px 10px 0;
+}
+
+.article_inner,
+.module_rate,
+.replies{display: inline-block;vertical-align: top}
+
+.article_inner,
+.module_rate,
+.story_inner,
+.reply_inner{background-color: white}
+
+.article_content{white-space: pre}
+.article_content iframe{width: 100%;}
+.article_content img{max-width: 100%;}
+.article_inner{padding: 10px;margin-right: 10px}
+.article_header,.article_content,.article_footer{display: inline-block;width: 100%}
+.article_header{
+	border-bottom: 1px dashed rgba(0, 0, 255, 0.1);
+	padding-bottom: 10px;
+	margin-bottom: 5px;
+}
+.article_header a{max-width: 50%}
+.article_footer li{float: left;}
+.article_footer li:last-child:after{content: "";margin: 0}
+.module_rate{
+	padding: 10px;
+	width: 57px;
+}
+.module_rate .btn{padding-right: 13px; text-indent: -9999px}
+.module_rate .btn:hover,
+.module_rate .btn:active{opacity: 0.5;}
+
+.up .btn,.down .btn{
+	background-image: url(../img/up-down.png);
+	background-repeat: no-repeat;
+	width: 10px;
+height: 12px;
+overflow: hidden;
+display: inline-block;
+}
+.down .btn{background-position: 0 -12px;}
+
+.liste .module_rate{margin: 0}
+/*
+============================================================================================================
+============================================================================================================
+============================================================================================================
+*/
+.post article{display: inline-block;vertical-align: top}
+.replies{
+	width: 50%;
+	height: 100%;
+	padding: 0px;
+	background-color: transparent;
+	margin-bottom: 54px;
+}
+.replies, .replies a{color: red}
+.replies_header{background-color: white;padding: 10px; margin-bottom: 10px;}
+.replies_header h3,.replies_header span{display: inline-block;}
+.replies h3{text-align: left;}
+.replies article{margin-bottom: 10px}
+article .reply_inner,
+.module_rate{display: inline-block;vertical-align: top;}
+article .reply_inner{margin-right: 10px; padding: 10px;}
+.replies .module_rate{margin: 0}
+.replies form{}
+form input[type=text],
+form textarea{background-color: white;}
+/*
+============================================================================================================
+============================================================================================================
+============================================================================================================
+*/
+

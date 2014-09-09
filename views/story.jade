@@ -1,0 +1,56 @@
+extends layout
+
+prepend content
+    
+    section.post
+        
+        article.story(id='#{story._id}')
+            div.article_inner
+                div.article_header
+                    a.float_left(href='/#{story._id}')
+                        h2 #{story.title}
+                        span.meta.float_right by #{story.author.name}
+
+                    -function prettyDate(dateString){
+                        //if it's already a date object and not a string you don't need this line:
+                        -var date = new Date(dateString);
+                        -var d = date.getDate();
+                        -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+                        -var m = monthNames[date.getMonth()];
+                        -var y = date.getFullYear();
+                        -return d+' '+m+' '+y;
+                    -}
+                    span.date.float_right #{prettyDate(story.date)}
+                div.article_content
+                    p !{story.content}
+                  
+
+                div.article_footer
+                    div.float_right
+                        ul
+                            li
+                                a.float_left(href='/api/share/#{story._id}') Share
+                            li
+                                a.float_left(href='/api/u/#{story._id}') Edit
+                            li
+                                a.float_right(href='/api/d/#{story._id}') Delete
+        
+            div.module_rate(id='rate-#{story._id}')
+                div.up
+                    span.btn +
+                    span.count #{story.vote_up} 
+                hr
+                div.down
+                    span.btn -
+                    span.count #{story.vote_down} 
+
+        div.replies 
+            div.replies_header  
+                span.align_left #{replies.length} Replies
+                span.float_right Vote for the best
+            include includes/reply-liste
+            hr.hr_white
+            include includes/reply-form
+
+
+        

@@ -64,6 +64,7 @@ var ExpressRadido = function() {
         var me = this;
         var mongoose = require('mongoose');
         var mongoUrl = 'mongodb://localhost/' + app.get('appDbName');
+        //console.log(mongoUrl);
         bootLog('Init Database connection to :', mongoUrl);
         mongoose.connect(mongoUrl, function(err) {
             if (err) {
@@ -127,9 +128,9 @@ var ExpressRadido = function() {
 
         //support Twig and jade templating
         if (app.get('view engine') === 'twig') {
-            app.set('views', path.join(path.dirname(__dirname), 'views/twig'));
+            app.set('views', path.join(path.dirname(__dirname), 'views/'));
         } else {
-            app.set('views', path.join(path.dirname(__dirname), 'views/jade'));
+            app.set('views', path.join(path.dirname(__dirname), 'views/'));
         }
 
         //declare dir public as static content.
@@ -205,10 +206,10 @@ var ExpressRadido = function() {
 
             var sessionSecret = process.env.npm_package_config_session_secret_key || 'session_secret_key';
             app.set('sessionSecret', sessionSecret);
-
+//console.log(process.env.npm_package_config_app_db_name);
             var appDbName = process.env.npm_package_config_app_db_name || 'application';
-            app.set('appDbName', appDbName);
-
+            //app.set('appDbName', appDbName);
+//console.log("appDbName : "+appDbName)
             var port = process.env.PORT || process.env.npm_package_config_port || null;
             app.set('port', port);
 

@@ -1,0 +1,24 @@
+each reply in replies
+
+    article.reply(id='#{reply._id}')
+        div.reply_inner
+            div.article_header
+                a.float_left(href='/user/#{reply.creator}')
+                    h3 #{reply.author.name}
+
+                span.date.float_right #{prettyDate(reply.date)}
+            div.article_content
+                p #{reply.description}
+                p #{reply.content}
+
+            div.article_footer
+        
+    
+        div.module_rate(id='rate-#{reply._id}')
+            div.up
+                span.btn +
+                span.count #{reply.vote_up} 
+            hr
+            div.down
+                span.btn -
+                span.count #{reply.vote_down} 

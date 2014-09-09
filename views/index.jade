@@ -1,0 +1,13 @@
+extends layout
+
+prepend content
+    
+    section
+        each story in stories
+            article.story
+                h2 #{story.title}
+                p #{story.description}
+
+        
+            
+        

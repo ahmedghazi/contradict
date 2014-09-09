@@ -1,0 +1,15 @@
+extends layout
+
+prepend content
+        
+    section
+        article
+            div.createbox
+                form(name="create", action="/api/c", method="post")
+                    input(type="text", name="name" placeholder="Name" value="")
+                    input(type="text", name="email" placeholder="Email" value="")
+                    input(type="text", name="title" placeholder="Title")
+                    textarea(name='content', rows=10, cols=50) Your story
+                    input(type="submit", value="create")
+                
+        

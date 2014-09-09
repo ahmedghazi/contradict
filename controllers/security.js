@@ -2,7 +2,7 @@ var SecurityController = function(app) {
     var express = require('express');
     var passport = require('passport');
     this.router = express.Router();
-
+    var User = app.getModel('User');
     /*
      * Login Check Path
      * reutrn the login form as view
@@ -10,7 +10,8 @@ var SecurityController = function(app) {
     this.router.post('/login', function(req, res, next) {
         passport.authenticate('local', function(err, user, info) {
             req.flash('email', req.body.email);
-
+            //console.log(user);
+            //console.log(info);
             if (err) {
                 req.flash('errors', err);
                 return res.redirect('/security/login');
@@ -32,7 +33,7 @@ var SecurityController = function(app) {
 
     /*
      * Login Path
-     * reutrn the login form as view
+     * return the login form as view
      */
     this.router.get('/login', function(req, res) {
         var errors = req.flash('errors');
@@ -52,6 +53,46 @@ var SecurityController = function(app) {
         res.redirect('/security/login');
     });
 
+
+    /*
+     * Login Path
+     * return the login form as view
+     */
+    this.router.get('/register', function(req, res) {
+        return res.render('security/register', {
+            title: 'Register'
+        });
+    });
+
+    this.router.post('/register', function(req, res, next) {
+        var user = new User({
+            email: req.body.email,
+            password: req.body.password
+        });
+
+        user.save(function (err) {
+            if (!err) {
+                //return console.log("user created");
+                res.redirect('/security/login');
+            } else {
+                return console.log(err);
+            }
+        });
+    });
+
+
+
+    this.router.get('/', function(req, res) {
+        return User.find().exec(function(err, users) {
+            if (err) {
+                console.log(err);
+                return next(err);
+            }
+            return res.json(users);
+        });
+    });
+
+    
     return this;
 };
 

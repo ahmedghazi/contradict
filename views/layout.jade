@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        base(href="/")
+        title Contradicts - #{title}
+        block links
+            link(rel='stylesheet', href='/stylesheet/reset.css')
+            link(rel='stylesheet', href='/stylesheet/style.css')
+        meta(og:title='Contradicts - #{title}')
+        meta(og:description='A place to debate with evidences')
+
+    body(class=getLocale())
+        div#wrapper.hidden
+            header.anime
+                include header
+            block content
+            footer.anime
+                include footer
+        script(src='/javascripts/jquery.min.js')         
+        script(src='/javascripts/Utils.js')
+        script(src='/javascripts/FormUtils.js')
+        script(src='/javascripts/ViewUtils.js')
+        script(src='/javascripts/AjaxUtils.js')
+        script(src='/javascripts/app.js')
