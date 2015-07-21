@@ -12,7 +12,7 @@
     "session": {
       "secret_key": "secretRadpido2014"
     },
-    "app_db_name": "application"
+    "app_db_name": "contradict"
   },
   "dependencies": {
     "express": "~4.0.0",
@@ -41,10 +41,11 @@
     "csurf": "~1.1.0",
     "limits": "0.0.3",
     "request": "~2.34.0",
-    "http-auth": "~2.1.7"
+    "http-auth": "~2.1.7",
+    "oembed": "0.1.0"
   },
-"engines": {
-  "node": "0.8.x",
-  "npm": "1.2.x"
-}
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.2.x"
+  }
 }

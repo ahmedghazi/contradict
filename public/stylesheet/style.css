@@ -35,6 +35,8 @@ input:focus
 button:focus{outline: 0;}
 .btn{cursor: pointer;}
 
+textarea:focus, input:focus{outline: 0;}
+
 ::-webkit-input-placeholder { color:blue; }
 ::-moz-placeholder { color:blue; } /* firefox 19+ */
 :-ms-input-placeholder { color:blue; } /* ie */
@@ -46,9 +48,11 @@ input:-moz-placeholder { color:blue; }
 .replies input:-moz-placeholder { color:red; }
 .replies textarea{color:red;}
 .replies input[type=submit]{background-color: red}
+.replies input[type=submit]:hover{background-color: transparent;color:red;border: 1px solid}
+
 a{color:blue;text-decoration: none}
 a:hover{color:#000000; text-decoration: none}
-.anime{
+.anime,input,textarea{
 	-webkit-transition: all .2s ease-out;
        -moz-transition: all .2s ease-out;
         -ms-transition: all .2s ease-out;
@@ -98,6 +102,7 @@ form input[type=submit]{
 	max-width: 30%;
 	text-transform: uppercase;
 }
+form input[type=submit]:hover{background-color: transparent;color:blue;border: 1px solid}
 /*
 ============================================================================================================
 ============================================================================================================
@@ -200,14 +205,14 @@ article.story{
 	padding-bottom: 10px;
 	margin-bottom: 5px;
 }
-.article_header a{max-width: 50%}
+.article_header a{max-width: 80%}
 .article_footer li{float: left;}
 .article_footer li:last-child:after{content: "";margin: 0}
 .module_rate{
 	padding: 10px;
 	width: 57px;
 }
-.module_rate .btn{padding-right: 13px; text-indent: -9999px}
+.module_rate .btn{text-indent: -9999px}
 .module_rate .btn:hover,
 .module_rate .btn:active{opacity: 0.5;}
 
@@ -215,13 +220,27 @@ article.story{
 	background-image: url(../img/up-down.png);
 	background-repeat: no-repeat;
 	width: 10px;
-height: 12px;
-overflow: hidden;
-display: inline-block;
+	height: 12px;
+	overflow: hidden;
+	display: inline-block;
 }
 .down .btn{background-position: 0 -12px;}
+.reply .up .btn{background-position: -10px 0;}
+.reply .down .btn{background-position: -10px -12px;}
 
 .liste .module_rate{margin: 0}
+.count{text-align: right; float: right;display: inline-block;}
+
+
+.media_wrapper{
+	width: 100%; height: 400px;
+	position: relative;
+	background-color: black;
+}
+.ico_play,
+.thumbnail{position: absolute;width: 100%; height: 100%}
+
+.thumbnail{background-position: center; background-repeat: no-repeat;}
 /*
 ============================================================================================================
 ============================================================================================================
@@ -239,7 +258,7 @@ display: inline-block;
 .replies_header{background-color: white;padding: 10px; margin-bottom: 10px;}
 .replies_header h3,.replies_header span{display: inline-block;}
 .replies h3{text-align: left;}
-.replies article{margin-bottom: 10px}
+.replies article{}
 article .reply_inner,
 .module_rate{display: inline-block;vertical-align: top;}
 article .reply_inner{margin-right: 10px; padding: 10px;}
@@ -247,6 +266,11 @@ article .reply_inner{margin-right: 10px; padding: 10px;}
 .replies form{}
 form input[type=text],
 form textarea{background-color: white;}
+
+.replies_liste{position: relative;}
+.reply{position: absolute;}
+.reordered{position: absolute;}
+
 /*
 ============================================================================================================
 ============================================================================================================

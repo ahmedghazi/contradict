@@ -10,6 +10,9 @@ prepend content
                     - });
                 form(action="/security/register", method="POST")
                     div.form-group
+                        label(for="name")
+                        input.form-control(type="text", name="name", id="name", placeholder="Name")
+                    div.form-group
                         label(for="email")
                         input.form-control(type="email", name="email", id="email", placeholder="Email", value=email)
                     div.form-group

@@ -1,15 +1,17 @@
-var HomeController = function(app) {
+var PagesController = function(app) {
     var express = require('express');
     this.router = express.Router();
+    var media_parser = require('media-parser');
     var Story = app.getModel('Story');
     var Reply = app.getModel('Reply');
     var User = app.getModel('User');
-    var postsPerPage = 2;
+    var postsPerPage = 200;
 
+    var Session = require('../config/security/session')();
 
     //Listen for route /
     this.router.get('/', function(req, res) {
-        //console.log(db);
+        //console.log(Session.MemoryStore);
         return Story.find().sort({date: 'desc'}).limit(postsPerPage).exec(function(err, stories) {
             if (err) {
                 console.log(err);
@@ -17,11 +19,24 @@ var HomeController = function(app) {
             }
             //console.log(app.get('title'));
             return res.render('liste', {
-                title: "Home",
+                title: app.get('title'),
                 stories: stories
             });
         });
     });
+
+    this.router.get('/contact', function(req, res) {
+        return res.render('contact', {
+            title: app.get('title')
+        });
+    });
+
+    this.router.get('/legal', function(req, res) {
+        return res.render('legal', {
+            title: app.get('title')
+        });
+    });
+
 
      //Listen for route /
     this.router.get('/p/:page', function(req, res) {
@@ -38,7 +53,7 @@ var HomeController = function(app) {
             }
             
             return res.render('liste', {
-                title: "Page "+req.params.page,
+                title: app.get('title'),
                 stories: stories
             });
         });
@@ -52,7 +67,7 @@ var HomeController = function(app) {
             }
             
             return res.render('liste', {
-                title: "Top",
+                title: app.get('title'),
                 stories: stories
             });
         });
@@ -66,37 +81,32 @@ var HomeController = function(app) {
             }
             
             return res.render('liste', {
-                title: "Worst",
+                title: app.get('title'),
                 stories: stories
             });
         });
     });
 
     this.router.get('/:id', function(req, res, next){
-        return Story
-                .findById(req.params.id)
-                .populate('author')
-                .exec(function(err, story) {
-                //, function (err, story) {
+        return Story.findById(req.params.id).populate('user').exec(function(err, story) {
             if (err) {
                 return next(err);
             }
-            
             console.log(story)
-            
             var replies = Reply
                 .find({reply_to:req.params.id})
                 .sort({vote_up: 'desc'})
-                .populate('author')
+                .populate('user')
                 .exec(function(err, replies) {
-                    //console.log(replies)
                     return res.render('story', {
-                        title: story.title,
+                        title: app.get('title'),
                         story: story,
                         replies: replies,
                     });
 
             });
+            
+            
 
         });
     });
@@ -106,4 +116,4 @@ var HomeController = function(app) {
     return this;
 };
 
-module.exports = HomeController;
+module.exports = PagesController;

@@ -5,10 +5,13 @@ prepend content
     section
         article
             div.createbox
-                form(name="update", action="/api/u", method="post")
-                    input(type="hidden", name="id" value="#{story._id}")
+                form(name="update", action="/api/u/#{story._id}", method="post")
+                    input(type="text", name="name" placeholder="Name" value="#{story.user.name}")
+                    input(type="text", name="email" placeholder="Email" value="#{story.user.email}")
                     input(type="text", name="title" placeholder="Title" value="#{story.title}")
-                    textarea(name='content', rows=10, cols=50) #{story.content}
-                    input(type="submit", value="update")
+                    textarea(name='content', rows=10, cols=50, placeholder="Your story") #{story.content} 
+                    input(type="text", name="media" placeholder="Media url (pic or video)" value="#{story.media}")
+                    input(type="hidden", name="id" value="#{story._id}")
+                    input(type="submit", value="Update")
             
         

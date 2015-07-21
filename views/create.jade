@@ -6,10 +6,11 @@ prepend content
         article
             div.createbox
                 form(name="create", action="/api/c", method="post")
-                    input(type="text", name="name" placeholder="Name" value="")
-                    input(type="text", name="email" placeholder="Email" value="")
+                    input(type="text", name="name" placeholder="Name" value="fezf")
+                    input(type="text", name="email" placeholder="Email" value="ezf@kn.fr")
                     input(type="text", name="title" placeholder="Title")
-                    textarea(name='content', rows=10, cols=50) Your story
+                    textarea(name='content', rows=10, cols=50, placeholder="Your story") 
+                    input(type="text", name="media" placeholder="Media url (pic or video)")
                     input(type="submit", value="create")
                 
         

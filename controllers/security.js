@@ -66,10 +66,12 @@ var SecurityController = function(app) {
 
     this.router.post('/register', function(req, res, next) {
         var user = new User({
+            name: req.body.name,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            ip: (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress
         });
-
+console.log(user);
         user.save(function (err) {
             if (!err) {
                 //return console.log("user created");

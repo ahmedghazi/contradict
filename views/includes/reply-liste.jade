@@ -1,10 +1,10 @@
 each reply in replies
 
-    article.reply(id='#{reply._id}')
+    article.reply.anime(id='#{reply._id}', data-vote_up='#{reply.vote_up}', data-vote_down='#{reply.vote_down}')
         div.reply_inner
             div.article_header
-                a.float_left(href='/user/#{reply.creator}')
-                    h3 #{reply.author.name}
+                a.float_left(href='/user/#{reply.user.name}')
+                    h3 #{reply.user.name}
 
                 span.date.float_right #{prettyDate(reply.date)}
             div.article_content

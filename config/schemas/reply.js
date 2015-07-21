@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Reply = mongoose.Schema({
-	creator: {type: String},
-	author:{type: Schema.Types.ObjectId, ref: 'User'},
+	user: {type: Schema.Types.ObjectId, ref: 'User'},
     reply_to:{type: String},
     title: {type: String},
     description: {type: String},

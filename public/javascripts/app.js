@@ -2,7 +2,7 @@ var ww,wh,fu,vu,au,prev_st;
 
 jQuery(document).ready(function ($) {
 	format();
-	init();
+	
 });
 
 $(window).resize(function(){ 
@@ -11,6 +11,7 @@ $(window).resize(function(){
 
 $(window).load(function(){ 
 	$("#wrapper").removeClass("hidden");
+	init();
 });
 
 

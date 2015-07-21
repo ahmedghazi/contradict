@@ -6,12 +6,12 @@ var FormUtils = function(){
 	};
 
 	this.bindEvents = function(){
-		$("textarea")
+		/*$("textarea")
 			.on("focusin", function(e){
 				if($(this).val() == "Your story")$(this).val("");
 			}).on("focusout", function(e){
 				if($(this).val() == "")$(this).val("Your story");
 			});
-
+		*/
 	};
 }

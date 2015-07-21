@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Story = mongoose.Schema({
-    creator: {type: String},
-    author:{type: Schema.Types.ObjectId, ref: 'User'},
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    media: {type: Schema.Types.ObjectId, ref: 'Media'},
     title: {type: String},
     description: {type: String},
     content: {type: String},
@@ -17,9 +17,8 @@ var Story = mongoose.Schema({
 });
 
 
-Story.methods.findCreator = function (callback) {
-    //console.log(this.creator)
-    return this.db.model('User').findById(this.creator, callback);
+Story.methods.findUser = function (callback) {
+    return this.db.model('User').findById(this.user, callback);
 };
 
 Story.statics.findByTitle = function (title, callback) {
