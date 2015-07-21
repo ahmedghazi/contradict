@@ -1,7 +1,7 @@
 var PagesController = function(app) {
     var express = require('express');
     this.router = express.Router();
-    var media_parser = require('media-parser');
+    //var media_parser = require('media-parser');
     var Story = app.getModel('Story');
     var Reply = app.getModel('Reply');
     var User = app.getModel('User');
