@@ -12,7 +12,7 @@
     "session": {
       "secret_key": "secretRadpido2014"
     },
-    "app_db_name": "contradict"
+    "app_db_name": "contradictt"
   },
   "dependencies": {
     "express": "~4.0.0",
