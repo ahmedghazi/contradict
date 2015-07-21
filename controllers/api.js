@@ -7,7 +7,7 @@ var ApiController = function(app) {
     var Reply = app.getModel('Reply');
     var User = app.getModel('User');
     var Media = app.getModel('Media');
-    var Helpers = require('helpers');
+    //var Helpers = require('helpers');
     var media_parser = require('media-parser');
 
     //var mongoose = require('mongoose');
