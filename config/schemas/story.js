@@ -7,7 +7,6 @@ var Story = mongoose.Schema({
     title: {type: String},
     description: {type: String},
     content: {type: String},
-    media: {type: String},
     date: {type: Date, default: Date.now},
     vote_up: {type: Number, default: 0},
     vote_down: {type: Number, default: 0},

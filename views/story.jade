@@ -24,7 +24,8 @@ prepend content
                     span.meta.float_left by #{story.user.name}
                 div.article_content
                     p !{story.content}
-                  
+                    if story.media
+                        p !{story.media.content}
 
                 div.article_footer
                     div.float_right

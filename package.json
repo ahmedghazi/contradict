@@ -42,7 +42,8 @@
     "limits": "0.0.3",
     "request": "~2.34.0",
     "http-auth": "~2.1.7",
-    "oembed": "0.1.0"
+    "oembed": "0.1.0",
+    "media-parser": "1.4.5"
   },
   "engines": {
     "node": "0.8.x",

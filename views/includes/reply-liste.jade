@@ -10,7 +10,8 @@ each reply in replies
             div.article_content
                 p #{reply.description}
                 p #{reply.content}
-
+                if reply.media
+                    p !{reply.media.content}
             div.article_footer
         
     

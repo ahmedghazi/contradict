@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var Reply = mongoose.Schema({
 	user: {type: Schema.Types.ObjectId, ref: 'User'},
+    media: {type: Schema.Types.ObjectId, ref: 'Media'},
     reply_to:{type: String},
     title: {type: String},
     description: {type: String},

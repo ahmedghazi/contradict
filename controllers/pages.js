@@ -2,6 +2,7 @@ var PagesController = function(app) {
     var express = require('express');
     this.router = express.Router();
     //var media_parser = require('media-parser');
+    var oembed = require('oembed');
     var Story = app.getModel('Story');
     var Reply = app.getModel('Reply');
     var User = app.getModel('User');
@@ -22,6 +23,35 @@ var PagesController = function(app) {
                 title: app.get('title'),
                 stories: stories
             });
+        });
+    });
+
+    this.router.get('/:id', function(req, res, next){
+        console.log(req.session);
+        var populateQuery = [{path:'media'}, {path:'user'}];
+
+        return Story
+            .findById(req.params.id)
+            .populate(populateQuery)
+            .exec(function(err, story) {
+                if (err) {
+                    return next(err);
+                }
+                
+                var ppopulateQuery = [{path:'media'}, {path:'user'}];
+                var replies = Reply
+                    .find({reply_to:req.params.id})
+                    .sort({vote_up: 'desc'})
+                    .populate(ppopulateQuery)
+                    .exec(function(err, replies) {
+                        console.log(replies);
+                        return res.render('story', {
+                            title: app.get('title'),
+                            story: story,
+                            //media: media,
+                            replies: replies,
+                        });
+                });
         });
     });
 
@@ -87,29 +117,7 @@ var PagesController = function(app) {
         });
     });
 
-    this.router.get('/:id', function(req, res, next){
-        return Story.findById(req.params.id).populate('user').exec(function(err, story) {
-            if (err) {
-                return next(err);
-            }
-            console.log(story)
-            var replies = Reply
-                .find({reply_to:req.params.id})
-                .sort({vote_up: 'desc'})
-                .populate('user')
-                .exec(function(err, replies) {
-                    return res.render('story', {
-                        title: app.get('title'),
-                        story: story,
-                        replies: replies,
-                    });
-
-            });
-            
-            
-
-        });
-    });
+    
 
     
 
